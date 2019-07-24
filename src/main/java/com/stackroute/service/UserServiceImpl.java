@@ -28,4 +28,46 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+    
+    
+    @Override
+    public User updateUser(User user, int id) throws UserNotFoundException
+        {
+            Optional<User> track1 = userRepository.findById(id);
+
+            if(!track1.isPresent())
+            {
+                throw new UserNotFoundException("Track Not Found");
+            }
+
+            user.setId(id);
+
+            User savedUser = userRepository.save(user);
+            System.out.println(savedUser.getLastName());
+            return savedUser;
+        }
+
+    @Override
+
+    public boolean deleteUser(int id) throws UserNotFoundException
+    {
+        Optional<User> user1 = userRepository.findById(id);
+
+        if(!user1.isPresent())
+        {
+            throw new UserNotFoundException("Track Not Found");
+        }
+
+        try {
+
+            userRepository.delete(user1.get());
+
+            return true;
+
+        }
+        catch (Exception exception)
+        {
+            return false;
+        }
+    }
 }

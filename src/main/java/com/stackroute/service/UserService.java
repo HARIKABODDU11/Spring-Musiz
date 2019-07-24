@@ -8,4 +8,6 @@ public interface UserService {
 
     public User saveUser(User user);
     public List<User> getAllUsers();
+    public User updateUser(User user, int id) throws UserNotFoundException;
+    public boolean deleteUser(int id) throws UserNotFoundException;
 }

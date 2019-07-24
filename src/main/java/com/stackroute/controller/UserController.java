@@ -41,4 +41,11 @@ public class UserController {
         }
         return responseEntity;
     }
+
+
+    @GetMapping("userByName")
+    public ResponseEntity<?> userByName(@RequestParam  String name){
+        return new ResponseEntity<>(userService.userByName(name),HttpStatus.OK);
+    }
+
 }

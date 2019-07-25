@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.persistence.Access;
 import javax.persistence.Entity;
@@ -16,14 +17,14 @@ import javax.persistence.Table;
 @Table(name="User")
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@PropertySource("com.stackroute.resource")
 public class User {
 
     @Id
-    int id;
-    String firstName;
-    String lastName;
-    int age;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private int age;
 
 
 }

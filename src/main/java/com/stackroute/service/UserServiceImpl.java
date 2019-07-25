@@ -5,6 +5,10 @@ import com.stackroute.exceptions.UserAlreadyExistsException;
 import com.stackroute.exceptions.UserNotFoundException;
 import com.stackroute.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +16,22 @@ import java.util.Optional;
 
 @Service
 
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService , ApplicationListener<ContextRefreshedEvent>, CommandLineRunner {
+
+    @Value("${user.1.firstname:default}")
+    String firstName1;
+    @Value("${user.1.lastname}")
+    String lastname1;
+    @Value("${user.1.age}")
+    int age1;
+
+
+    @Value("${user.2.firstname:default}")
+    String firstName2;
+    @Value("${user.2.lastname}")
+    String lastname2;
+    @Value("${user.2.age}")
+    int age2;
 
     UserRepository userRepository;
 
@@ -77,4 +96,14 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("CommandLineRunner Implemented");
+    }
+
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+        userRepository.save(new User(1,firstName1,lastname1,age1));
+        userRepository.save(new User(1,firstName2,lastname2,age2));
+    }
 }

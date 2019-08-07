@@ -25,6 +25,7 @@ public class User {
         this.lastName = lastName;
         this.age = age;
     }
+    //getter and setter methods
 
 
     public int getId() {

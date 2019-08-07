@@ -11,6 +11,7 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Integer> {
+    //Repository which extends the Jpa Repository
 
     @Query(value = "SELECT user FROM User user where firstName=?1")
     List<User> userByName(String name);

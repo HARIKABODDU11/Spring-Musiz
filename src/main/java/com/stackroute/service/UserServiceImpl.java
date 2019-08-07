@@ -12,12 +12,18 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     UserRepository userRepository;
-
+//Autowiring the muzix repository
     @Autowired
+    
+    
+    
+   //parametrized constructor
     public UserServiceImpl(UserRepository userRepository){
         this.userRepository=userRepository;
 
     }
+    
+    //create the user
     @Override
     public User saveUser(User user) {
         User saveUser=userRepository.save(user);

@@ -32,10 +32,10 @@ public class UserServiceImpl implements UserService , ApplicationListener<Contex
     String lastname2;
     @Value("${user.2.age}")
     int age2;
-
+   @Autowired
     UserRepository userRepository;
 
-    @Autowired
+   //service interface
     public UserServiceImpl(UserRepository userRepository){
         this.userRepository=userRepository;
 
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService , ApplicationListener<Contex
         }
         return saveUser;
     }
-
+//get all users
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -81,18 +81,14 @@ public class UserServiceImpl implements UserService , ApplicationListener<Contex
         return userRepository.save(user);
 
     }
-
+   //Deleting the user
     @Override
-    public boolean deleteUser(int id) throws UserNotFoundException {
-
-
-        Optional<User> userOptional = userRepository.findById(id);
-
-        if (!userOptional.isPresent())
-            throw new UserNotFoundException("user id not found");
-
-        userRepository.delete(userOptional.get());
-        return true;
+    public User deleteUser(int id) throws UserNotFoundException {
+        if(!userRepository.existsById(id))
+        {
+            throw new UserNotFoundException("user not found");
+        }
+       return userRepository.deleteById(id);
     }
 
 

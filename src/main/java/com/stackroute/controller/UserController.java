@@ -47,5 +47,20 @@ public class UserController {
     public ResponseEntity<?> userByName(@RequestParam  String name){
         return new ResponseEntity<>(userService.userByName(name),HttpStatus.OK);
     }
+    
+    
+    
+    //Delete the user
+    @DeleteMapping("user")
+    public ResponseEntity<?> deleteUser(@RequestBody  User user) {
+
+        return new ResponseEntity<Boolean>(userService.deleteUser(user.getId()), HttpStatus.OK);
+    }
+
+    //Update the user
+    @PutMapping("user")
+    public ResponseEntity<?> updateUser(@RequestBody User user) {
+        return new ResponseEntity<>(userService.updateUser(user), HttpStatus.OK);
+    }
 
 }

@@ -10,8 +10,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 //import static jdk.internal.joptsimple.util.RegexMatcher.regex;//
 
 @Configuration
+  // Using swagger 2
 @EnableSwagger2
 public class SwaggerConfig {
+    //bean creation
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)

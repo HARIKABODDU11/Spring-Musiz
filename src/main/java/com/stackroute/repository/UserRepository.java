@@ -7,10 +7,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-
+//Repository which extends the Jpa Repository
 @Repository
 public interface UserRepository extends JpaRepository<User,Integer> {
-
+//Query annotation for retrieving data
     @Query(value = "SELECT user FROM User user where firstName=?1")
     List<User> userByName(String name);
 }

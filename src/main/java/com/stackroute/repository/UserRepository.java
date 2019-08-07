@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Repository
+//Repository which extends the Jpa Repository
 public interface UserRepository extends JpaRepository<User,Integer> {
 
     @Query(value = "SELECT user FROM User user where firstName=?1")

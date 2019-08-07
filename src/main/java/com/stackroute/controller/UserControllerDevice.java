@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @ControllerAdvice(basePackages = "com.stackroute")
 public class UserControllerDevice {
-
+//user controllerdevice class
     private ResponseEntity<VndErrors> error(final Exception exception, final HttpStatus httpStatus, final String logRef)
     {
         final String message = Optional.of(exception.getMessage()).orElse(exception.getClass().getSimpleName());

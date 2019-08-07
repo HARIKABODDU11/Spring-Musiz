@@ -55,4 +55,34 @@ public class UserController {
         }
       return  responseEntity;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     //Deleting the user
+    @DeleteMapping("user")
+    public ResponseEntity<?> deleteUser(@RequestBody User user) {
+
+        ResponseEntity responseEntity;
+        try {
+            responseEntity=new ResponseEntity<>(userService.deleteUser(user.getId()), HttpStatus.OK);
+        }
+        catch (TrackNotFoundException exception)
+        {
+            responseEntity=new ResponseEntity(exception.getMessage(),HttpStatus.CONFLICT);
+        }
+        return responseEntity;
+    }
+
+    //Update the user
+    @PutMapping("user")
+    public ResponseEntity<?> updateUser(@RequestBody User user) {
+        return new ResponseEntity<>(muzixService.updateUser(user), HttpStatus.OK);
+    }
 }

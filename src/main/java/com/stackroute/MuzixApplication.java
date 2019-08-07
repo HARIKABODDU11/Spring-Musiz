@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
+//Run method which is used to run the application
 @EnableJpaAuditing //to track and log every change
 public class MuzixApplication {
 

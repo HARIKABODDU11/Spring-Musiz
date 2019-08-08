@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
     this.userRepository = userRepository;
   }
-
+  //save the user
   @Override
   public User saveUser(User user) throws UserAlreadyExistsException {
 
@@ -38,13 +38,13 @@ public class UserServiceImpl implements UserService {
     }
     return user1;
   }
-
+  //to get all users
   @Override
   public List<User> getAllUsers() {
 
     return userRepository.findAll();
   }
-
+ //uodate the user
   @Override
   public User updateUser(User user,int id) throws UserNotFoundException {
 
@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
     return  userRepository.save(user);
 
   }
-
+ //delete the user based on given id
   @Override
   public User deleteUser(int id) {
 
@@ -71,13 +71,13 @@ public class UserServiceImpl implements UserService {
     return user.get();
 
   }
-
+  //find the userbyname
   @Override
   public List<User> userByName(String name) {
     List<User> userList= userRepository.findTitleByName(name);
     return userList;
   }
-
+//search the user byname andid
   @Override
   public List<User> searchByNameAndId(int id, String name) {
     List<User> userList1=userRepository.findTitleByName(name,id);

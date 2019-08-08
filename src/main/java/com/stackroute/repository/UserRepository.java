@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Repository
+//to identtify this as repository
 public interface UserRepository extends MongoRepository<User,Integer> {
-
-//    @Query(value = "SELECT user FROM User user where firstName=?1")
-//    List<User> userByName(String name);
 }

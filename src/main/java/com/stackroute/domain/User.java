@@ -18,10 +18,12 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+// To ignore any unknown properties in JSON input without exception
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  //user properties
     private int id;
     private String firstName;
     private String lastName;

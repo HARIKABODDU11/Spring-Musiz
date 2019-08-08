@@ -19,14 +19,15 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
 
-
+  @Autowired
     UserRepository userRepository;
 
-    @Autowired
+  //constructor
     public UserServiceImpl(UserRepository userRepository){
         this.userRepository=userRepository;
 
     }
+    //save the user
     @Override
     public User saveUser(User user) throws UserAlreadyExistsException {
         if(userRepository.existsById(user.getId())){
@@ -38,14 +39,14 @@ public class UserServiceImpl implements UserService {
         }
         return saveUser;
     }
-
+//get all users
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
 
-
+// updtae the user data
 @Override
     public User updateUser(User user, int id) throws UserNotFoundException {
         Optional<User> userOptional = userRepository.findById(id);
@@ -59,7 +60,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
 
     }
-
+  // delete the user data
   public User deleteUser(int id) throws UserNotFoundException
   {
     Optional<User> user1 = userRepository.findById(id);

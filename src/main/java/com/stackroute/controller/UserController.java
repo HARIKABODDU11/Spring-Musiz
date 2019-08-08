@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+//controller
 @RequestMapping(value = "api/v1")
 public class UserController {
   UserService userService;
@@ -23,26 +24,14 @@ public class UserController {
   public UserController(UserService userService) {
     this.userService = userService;
   }
-
+//save the user
   @PostMapping("user")
   public ResponseEntity<?> saveUser(@RequestBody User user) throws UserAlreadyExistsException {
     userService.saveUser(user);
     return new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
   }
 
-
-  @PostMapping("alltracks")
-  public ResponseEntity<?> saveUser(@RequestBody List<User> userList) throws UserAlreadyExistsException {
-    List<User> savedUserList = new ArrayList<User>();
-
-    //saving each user
-    for (User user : userList) {
-      User user1 = userService.saveUser(user);
-      savedUserList.add(user1);
-    }
-    return new ResponseEntity<List<User>>(savedUserList, HttpStatus.CREATED);
-  }
-
+ //get all users
   @GetMapping("user1")
   public ResponseEntity<?> getAllUsers() {
     ResponseEntity responseEntity;
@@ -56,22 +45,13 @@ public class UserController {
 
     return responseEntity;
   }
-
-
-//
-//    @GetMapping("userByName")
-//    public ResponseEntity<?> userByName(@RequestParam String name) throws UserNotFoundException{
-//        userService.userByName(name);
-//        return  new ResponseEntity<String>("user by name", HttpStatus.OK);
-//    }
-
-
+  //update the user
   @PutMapping("user/{id}")
   public ResponseEntity<?> updateUser(@RequestBody User user, @PathVariable int id) throws UserNotFoundException {
     User user1 = userService.updateUser(user, id);
     return new ResponseEntity<User>(user1, HttpStatus.OK);
   }
-
+ //delete the user
   @DeleteMapping("user/{id}")
   public ResponseEntity<?> deleteUser(@PathVariable int id) throws UserNotFoundException {
     ResponseEntity responseEntity = null;

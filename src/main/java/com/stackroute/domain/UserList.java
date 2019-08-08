@@ -6,5 +6,5 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserList {
-    public List<User> track;
+    public List<User> user;
 }

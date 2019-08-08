@@ -1,6 +1,5 @@
 
-# Spring-DataMongo
-Spring-Asiignment
+Spring-Asignment
 
 1 Name of Project Muzix Application
 2 Objective/Vision This is an online application that helps users manage music listed on Music Database (https://www.last.fm). Using this app, a user should be able to search and manage music.

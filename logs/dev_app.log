@@ -1,0 +1,38 @@
+"2019-08-14 15:26:11,633 INFO  [main] com.stackroute.MusixAppAssignment.MusixAppAssignmentApplication : Starting MusixAppAssignmentApplication on boddu-ThinkPad-T450 with PID 20832 (/home/boddu/Desktop/Musix1/target/classes started by boddu in /home/boddu/Desktop/Musix1)
+""2019-08-14 15:26:11,638 INFO  [main] com.stackroute.MusixAppAssignment.MusixAppAssignmentApplication : No active profile set, falling back to default profiles: default
+""2019-08-14 15:26:13,772 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+""2019-08-14 15:26:13,775 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+""2019-08-14 15:26:13,866 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78ms. Found 1 repository interfaces.
+""2019-08-14 15:26:13,895 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+""2019-08-14 15:26:13,895 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+""2019-08-14 15:26:13,905 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 1 repository interfaces.
+""2019-08-14 15:26:14,613 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9c7b77d3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2019-08-14 15:26:14,655 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.hateoas.config.HateoasConfiguration' of type [org.springframework.hateoas.config.HateoasConfiguration$$EnhancerBySpringCGLIB$$1bfbc505] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2019-08-14 15:26:15,049 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8091 (http)
+""2019-08-14 15:26:15,100 INFO  [main] org.apache.catalina.core.StandardService : Starting service [Tomcat]
+""2019-08-14 15:26:15,101 INFO  [main] org.apache.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.21]
+""2019-08-14 15:26:15,272 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+""2019-08-14 15:26:15,546 INFO  [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+""2019-08-14 15:26:15,809 INFO  [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+""2019-08-14 15:26:15,916 INFO  [main] org.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2019-08-14 15:26:16,018 INFO  [main] org.hibernate.Version : HHH000412: Hibernate Core {5.3.10.Final}
+""2019-08-14 15:26:16,021 INFO  [main] org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+""2019-08-14 15:26:16,241 INFO  [main] org.hibernate.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+""2019-08-14 15:26:16,465 INFO  [main] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+""2019-08-14 15:26:17,470 INFO  [main] org.hibernate.tool.schema.internal.SchemaCreatorImpl : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@568c9ee1'
+""2019-08-14 15:26:17,473 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2019-08-14 15:26:17,803 INFO  [main] org.mongodb.driver.cluster : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+""2019-08-14 15:26:17,876 INFO  [cluster-ClusterId{value='5d53dac1a5e7a15160cfbc11', description='null'}-localhost:27017] org.mongodb.driver.connection : Opened connection [connectionId{localValue:1, serverValue:9}] to localhost:27017
+""2019-08-14 15:26:17,886 INFO  [cluster-ClusterId{value='5d53dac1a5e7a15160cfbc11', description='null'}-localhost:27017] org.mongodb.driver.cluster : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6009436}
+""2019-08-14 15:26:18,541 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2019-08-14 15:26:18,959 INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor'
+""2019-08-14 15:26:19,310 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper : Context refreshed
+""2019-08-14 15:26:19,331 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+""2019-08-14 15:26:19,343 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner : Scanning for api listing references
+""2019-08-14 15:26:19,395 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer : Tomcat started on port(s): 8091 (http) with context path ''
+""2019-08-14 15:26:19,399 INFO  [main] com.stackroute.MusixAppAssignment.MusixAppAssignmentApplication : Started MusixAppAssignmentApplication in 8.822 seconds (JVM running for 9.624)
+""2019-08-14 15:47:26,645 INFO  [http-nio-8091-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2019-08-14 15:47:26,909 INFO  [http-nio-8091-exec-2] org.mongodb.driver.connection : Opened connection [connectionId{localValue:2, serverValue:10}] to localhost:27017
+"

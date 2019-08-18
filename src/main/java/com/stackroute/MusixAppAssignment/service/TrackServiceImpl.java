@@ -3,8 +3,10 @@ package com.stackroute.MusixAppAssignment.service;
 import com.stackroute.MusixAppAssignment.exceptions.TrackNotFoundException;
 import com.stackroute.MusixAppAssignment.exceptions.UserAlreadyExistException;
 import com.stackroute.MusixAppAssignment.model.Track;
+import com.stackroute.MusixAppAssignment.model.TrackDTO;
 import com.stackroute.MusixAppAssignment.repository.TrackRepository;
 
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,75 +16,82 @@ import java.util.Optional;
 @Service  //it is a service class
 public class TrackServiceImpl implements TrackService {
 
-    //overriding all the methods from trackservice interface
-    @Autowired
-    private  TrackRepository trackRepository;
+  //overriding all the methods from trackservice interface
+  @Autowired
+  private  TrackRepository trackRepository;
+  private TrackMapper trackMapper;
 
-    //creating the constructor
-    public TrackServiceImpl(TrackRepository trackRepository) {
+  //creating the constructor
+  public TrackServiceImpl(TrackRepository trackRepository,TrackMapper trackMapper) {
 
-        this.trackRepository = trackRepository;
+    this.trackRepository = trackRepository;
+    this.trackMapper=trackMapper;
+  }
+  @Override
+  public Track saveTrack(Track track) throws UserAlreadyExistException {
+
+    if(trackRepository.existsById(track.getId())){
+
+      throw new UserAlreadyExistException("track already exist");
     }
-
-    @Override
-    public Track saveTrack(Track track) throws UserAlreadyExistException {
-
-        if(trackRepository.existsById(track.getId())){
-
-            throw new UserAlreadyExistException("track already exist");
-        }
-
-        Track track1=trackRepository.save(track);
-        if(track1==null){
-            throw new UserAlreadyExistException("track already exist");
-        }
-        return track1;
+    TrackDTO trackDTO=trackMapper.trackToTrackDTO(track);
+    TrackDTO trackDTO1=trackRepository.save(trackDTO);
+    Track savedTrack=trackMapper.trackDTOToTrack(trackDTO1);
+    if(savedTrack==null){
+      throw new UserAlreadyExistException("track already exist");
     }
+    return savedTrack;
+  }
 
-    @Override
-    public List<Track> getAllTrack() {
+  @Override
+  public List<Track> getAllTrack() {
+    List<TrackDTO> trackDTOList=trackRepository.findAll();
+    List<Track> trackList=trackMapper.trackDTOListToTrackList(trackDTOList);
 
-        return trackRepository.findAll();
+    return  trackList;
+  }
+
+  @Override
+  public Track updateTrack(Track track,int id) throws TrackNotFoundException {
+
+    Optional<TrackDTO> trackDTOOptional= trackRepository.findById(id);
+
+    if(!trackDTOOptional.isPresent()){
+
+      throw new TrackNotFoundException("track not found exception");
     }
+    Track track1=trackMapper.trackDTOToTrack(trackDTOOptional.get());
 
-    @Override
-    public Track updateTrack(Track track,int id) throws TrackNotFoundException {
+    track.setId(id);
+    TrackDTO trackDTO=trackMapper.trackToTrackDTO(track1);
+    TrackDTO savedTrackedDto=trackRepository.save(trackDTO);
 
-       Optional<Track> track1= trackRepository.findById(id);
 
-        if(!track1.isPresent()){
+    return  trackMapper.trackDTOToTrack(savedTrackedDto);
 
-            throw new TrackNotFoundException("track not found exception");
-        }
-        if(track == null){
-            throw new TrackNotFoundException("track not found exception");
-        }
-        track.setId(id);
+  }
 
-        return  trackRepository.save(track);
+  @Override
+  public Track deleteTrack(int id){
 
-    }
+    Optional<TrackDTO> trackDTOOptional = trackRepository.findById(id);
+    trackRepository.delete(trackDTOOptional.get());
+    return trackMapper.trackDTOToTrack(trackDTOOptional.get());
 
-    @Override
-    public Track deleteTrack(int id) {
 
-        Optional<Track> track = trackRepository.findById(id);
-        trackRepository.deleteById(id);
-        return track.get();
+  }
 
-    }
-
-    @Override
-    public List<Track> trackByName(String name) {
-        List<Track> trackList= trackRepository.findTitleByName(name);
-        return trackList;
-    }
-
-    @Override
-    public List<Track> searchByNameAndId(int id, String name) {
-        List<Track> trackList1=trackRepository.findTitleByName(name,id);
-        return trackList1;
-    }
+//  @Override
+//  public List<Track> trackByName(String name) {
+//    List<Track> trackList= trackRepository.findTitleByName(name);
+//    return trackList;
+//  }
+//
+//  @Override
+//  public List<Track> searchByNameAndId(int id, String name) {
+//    List<Track> trackList1=trackRepository.findTitleByName(name,id);
+//    return trackList1;
+//  }
 
 
 }

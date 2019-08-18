@@ -1,5 +1,8 @@
 package com.stackroute.MusixAppAssignment.model;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
@@ -18,11 +21,11 @@ import javax.persistence.*;
 
 //it ignores all unwanted data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Track {
-   @Id  //representing id as a primary key
-//   @GeneratedValue(strategy=GenerationType.AUTO)  //generating automatic values
-//    @Column(name = "id", updatable = false, nullable = false)
-    private int id;
+public class TrackDTO {
+ @Id  //representing id as a primary key
+// @GeneratedValue(strategy=GenerationType.AUTO)  //generating automatic values
+//  @Column(name = "id", updatable = false, nullable = false)
+  private int id;
 
   public int getId() {
     return id;
@@ -74,11 +77,11 @@ public class Track {
 
   private String name;
 
-    private String artist;
+  private String artist;
 
-    private String url;
-    private String streamable;
-    private int listeners;
+  private String url;
+  private String streamable;
+  private int listeners;
 
 
 
